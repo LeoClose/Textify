@@ -16,6 +16,8 @@ Textify.connect("loading", apiLoading) # Returns waiting time
 func apiLoading(time):
   pass
 ```
+> [!NOTE]
+>**if the API is loading while trying to process your audio, the plugin will make another request every 5s until it is loaded (feel free to change anything as you will)**
 ### Received signal
 Received signal returns parsed text
 ```GDScript
