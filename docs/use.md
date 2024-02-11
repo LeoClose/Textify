@@ -43,4 +43,4 @@ Textify.start_recording()
 Textify.stop_recording()
 ```
 > [!NOTE]
->**after using stop_recording() the API will start processing your file**
+>**after using stop_recording() the API will start processing your file, and when it finishes *received* signal will be emitted, but if the API hasn't loaded yet *loading* signal will be emitted**
