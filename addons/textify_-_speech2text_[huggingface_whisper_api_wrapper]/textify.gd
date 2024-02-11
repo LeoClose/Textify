@@ -2,7 +2,7 @@
 extends Node
 
 
-var authToken = "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" # View docs for more info
+var authToken = "" # View docs for more info
 
 
 var effect
