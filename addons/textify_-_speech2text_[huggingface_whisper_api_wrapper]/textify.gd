@@ -2,7 +2,7 @@
 extends Node
 
 
-var authToken = "" # View docs for more info
+var authToken = "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" # View docs for more info
 
 
 var effect
@@ -26,8 +26,12 @@ func _on_http_request_request_completed(_result, response_code, _headers, body):
 	if response_code == 503:
 		printerr(response)
 		emit_signal("loading", response["estimated_time"])
+		$Timer.start()
 	else:
-		emit_signal("received", response["text"].strip_edges())
+		if response != null:
+			emit_signal("received", JSON.parse_string(response["text"].strip_edges()))
+		else:
+			printerr("Textify: There was an error with processing your request. Your audio file was probably too big.")
 
 func start_recording():
 	effect.set_recording_active(true)
@@ -44,3 +48,6 @@ func parse_file(fileLocation):
 	var file := FileAccess.open(fileLocation, FileAccess.READ)
 	var data := file.get_buffer(file.get_length())
 	processRequest(data)
+
+func _on_timer_timeout():
+	stop_recording()
