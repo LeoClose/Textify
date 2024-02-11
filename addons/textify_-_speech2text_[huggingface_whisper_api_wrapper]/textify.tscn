@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6yxgd8jjdn3l"]
+
+[ext_resource type="Script" path="res://addons/textify_-_speech2text_[huggingface_whisper_api_wrapper]/textify.gd" id="1_lv0bi"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_p8qyr"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_lv0bi")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_p8qyr")
+autoplay = true
+bus = &"Record"
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
