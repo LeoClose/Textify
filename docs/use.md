@@ -5,7 +5,7 @@ When using Textify as your Speech2Text solution, you have two options:
 2) Recording users microphone input
 
 ## Connecting signals
-Textify gives you two signals:
+Textify has two signals:
 1) loading
 2) received
 
@@ -19,7 +19,7 @@ func apiLoading(time):
 > [!NOTE]
 >**if the API is loading while trying to process your audio, the plugin will make another request every 5s until it is loaded by default (feel free to change anything as you will)**
 ### Received signal
-Received signal returns parsed text
+Received signal returns the text of speech recognized in your mp3/ogg/wav file
 ```GDScript
 Textify.connect("received", receivedText) # Returns parsed text
 func receivedText(text):
