@@ -29,7 +29,7 @@ func _on_http_request_request_completed(_result, response_code, _headers, body):
 		$Timer.start()
 	else:
 		if response != null:
-			emit_signal("received", JSON.parse_string(response["text"].strip_edges()))
+			emit_signal("received", response["text"].strip_edges())
 		else:
 			printerr("Textify: There was an error with processing your request. Your audio file was probably too big.")
 
