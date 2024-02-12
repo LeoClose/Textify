@@ -27,6 +27,7 @@ func receivedText(text):
 ```
 
 ## Parsing a file
+Parse an already existing audio file
 ```GDScript
 Textify.parse_file(fileLocation)
 ```
